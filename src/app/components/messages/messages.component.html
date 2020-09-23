@@ -1,0 +1,35 @@
+<div *ngIf="isDoctor(); else patientDisplay">
+  <h3 style="margin-top: 20px;">Pacijent : {{patient.full_name}}</h3>
+  <hr>
+  <br>
+  <div class="messages_containter">
+    <div  *ngFor="let message of messages">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="your_message bg-light" *ngIf="isPatientMessage(message)">{{message.content}}</div><br>
+        </div>
+        <div class="col-sm-6" >
+          <div class="my_message bg-primary" *ngIf="isDoctorMessage(message)" >{{message.content}}</div><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <ng-template #patientDisplay>
+    <h3 style="margin-top: 20px;" >Doktor : {{doctor.full_name}}</h3>
+    <hr>
+    <br>
+    <div class="messages_containter">
+      <div  *ngFor="let message of messages">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="your_message bg-light" *ngIf="isDoctorMessage(message)" > {{message.content}}</div><br>
+          </div>
+          <div class="col-sm-6" >
+            <div class="my_message bg-primary" *ngIf="isPatientMessage(message)"> {{message.content}}</div><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+

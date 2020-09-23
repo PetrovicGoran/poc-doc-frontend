@@ -1,0 +1,90 @@
+<div class="container text-center">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div *ngIf="isDoctor(); else home">
+      <div *ngIf="isLoggedIn(); else home">
+        <a  class="navbar-brand" routerLink="/home-doctor"> {{ title }}</a>
+      </div>
+    </div>
+    <ng-template #home>
+      <a  class="navbar-brand" routerLink="/home"> {{ title }}</a>
+    </ng-template>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="!isLoggedIn()" class="nav-item" (click)="switchMode('doctor')"><a  class="nav-link" routerLink="/home">
+          <i class="fa fa-user-md fa-2x" aria-hidden="true"></i></a>
+        </li>
+        <li *ngIf="!isLoggedIn()" class="nav-item" (click)="switchMode('patient')"><a  class="nav-link" routerLink="/home">
+          <i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
+        </li>
+
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <div *ngIf="isPatient(); else doctorProfile">
+            <a class="nav-link" routerLink="/patient-profile"> Profil</a>
+          </div>
+          <ng-template #doctorProfile>
+            <a class="nav-link" routerLink="/doctor-profile"> Profil</a>
+          </ng-template>
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <div *ngIf="isPatient(); else doctorMessages">
+            <a class="nav-link" routerLink="/doctor-list"> Zdravniki</a>
+          </div>
+          <ng-template #doctorMessages>
+            <a class="nav-link" routerLink="/patient-list"> Pacijenti</a>
+          </ng-template>
+        </li>
+        <!--<li *ngIf="isLoggedIn()" class="nav-item">
+          <div *ngIf="isPatient()">
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="border: none; background-color: transparent; color: dimgrey;">
+               Izposoja pripomočkov
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/borrow-new">Nova izposoja</a>
+                <a class="dropdown-item" routerLink="/borrow-list">Trenutno v izposoji</a>
+                <a class="dropdown-item" routerLink="/borrow-history">Zgodovina izposoje</a>
+              </div>
+            </div>
+          </div>
+        </li>-->
+        <li *ngIf="isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/transactions"> Transakcije točki</a></li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="!isLoggedIn()" class="nav-item">
+          <div *ngIf="isPatient()">
+            <a  class="nav-link" routerLink="/patient-register"><i class="fa fa-user-plus"></i> Registracija</a>
+          </div>
+          <!--<ng-template #doctorTemplateRegister>
+            <a  class="nav-link" routerLink="/doctor-register"><i class="fa fa-user-plus"></i> Doktor-Registracija</a>
+          </ng-template>-->
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/home" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Odjava</a></li>
+
+        <li *ngIf="!isLoggedIn()" class="nav-item">
+          <div *ngIf="isPatient(); else doctorTemplateLogIn">
+            <a class="nav-link"  routerLink="/patient-login"><i class="fas fa-sign-in-alt"></i> Prijava</a>
+          </div>
+          <ng-template #doctorTemplateLogIn>
+            <a  class="nav-link" routerLink="/doctor-login"><i class="fas fa-sign-in-alt"></i> Doktor-Prijava</a>
+          </ng-template>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row content">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10 text-left">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+<footer class="container text-center">
+</footer>
+
+
+
+
+

@@ -1,0 +1,75 @@
+<h2 style="margin-top: 20px;margin-bottom: 20px;">FORMA ZA OCENJEVANJE</h2>
+<hr>
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-1"><i class="fa fa-user fa-2x" aria-hidden="true"></i></div><br>
+        <div class="col-sm-11"><p style="font-size:18px;">{{patient.full_name}}</p></div><br>
+      </div>
+      <br>
+      <!--<input type="text" class="form-control" placeholder="Naslov za ocenjevanje" [(ngModel)]="tx.public_to">-->
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-8">
+          <select class="form-control">
+            <option>Generalna ocena</option>
+            <!--<option>Prijaznost</option>
+            <option>Odgovornost</option>-->
+          </select>
+        </div>
+        <div class="form-group col-sm-4">
+          <input list="suggested_quantity" name="quantity" class="form-control" placeholder="N" [(ngModel)]="tx.points">
+          <datalist id="suggested_quantity">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+            <option value="5">
+          </datalist>
+        </div>
+      </div>
+    </div>
+    <!--<div class="form-group">
+      <label for="exampleFormControlTextarea1">Dodatna opomba</label>
+      <textarea class="form-control"  rows="3"></textarea>
+    </div>-->
+    <div class="row">
+      <div class="col-sm-6" ></div>
+      <div class="col-sm-4" style="margin-left: 55px;">
+        <button (click)="executeTransaction()" class="btn btn-m btn-primary btn-block" name="Submit" value="Oceni" style="width: 150px;">Oceni</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="container">
+            <div [ngStyle]="{'visibility': loaderVisible ? 'visible' : 'hidden'}" class="loader"></div>
+            <div class="checkmark_containter" [ngStyle]="{'visibility': checkVisible ? 'visible' : 'hidden'}">
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label [ngStyle]="{'visibility': loaderVisible ? 'visible' : 'hidden'}"
+        class="status_label" style="margin-top: 300px;">
+          Transakcija se izvaja...
+        </label>
+        <label [ngStyle]="{'visibility': checkVisible ? 'visible' : 'hidden'}"
+        class="status_label">
+          Transakcija je uspela
+        </label>
+        <label [ngStyle]="{'visibility': failed ? 'visible' : 'hidden'}"
+        class="status_label" style="color: red;">
+          Transakcija ni uspela
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+

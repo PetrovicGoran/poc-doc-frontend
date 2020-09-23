@@ -1,0 +1,23 @@
+<h2 style="margin-top: 20px;">Trenutno v izposoji</h2><br>
+<div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Pripomocek</th>
+        <th scope="col">Lokacija pripomocka</th>
+        <th scope="col">Datum izposoje</th>
+        <th scope="col">Datum izteka izposoje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of testData">
+        <th scope="row">{{item._id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.location}}</td>
+        <td>{{item.borrow_date.toLocaleString()}}</td>
+        <td>{{item.deadline_date.toLocaleString()}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

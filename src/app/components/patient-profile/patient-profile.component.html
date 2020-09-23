@@ -1,0 +1,39 @@
+<div class = 'row' style='margin-top:10px;'>
+  <div class='col-sm-2' style="margin-left: 30px;">
+    <h2>Profil</h2>
+      </div>
+</div>
+<br>
+<div class="row" style="margin-left: 40px;">
+  <div id='info' class='col-sm-8'>
+    <table class="table table-hover" style="font-size:20px;">
+      <tbody>
+          <tr>
+            <th scope="row">Medicinska stevilka</th>
+            <td>{{patient.medical_number}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Polno ime</th>
+            <td>{{patient.full_name}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Telefonska stevilka</th>
+            <td colspan="2">{{patient.phone}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Naslov</th>
+            <td colspan="2">{{patient.location}}</td>
+          </tr>
+          <!--<tr>
+            <th scope="row">Generalna ocena</th>
+            <td colspan="2">{{patient.grade}}</td>
+          </tr>-->
+          <tr>
+            <th scope="row">Stanje tock</th>
+            <td colspan="2">{{patient.grading_points}}</td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+

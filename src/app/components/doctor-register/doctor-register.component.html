@@ -1,0 +1,13 @@
+<h1>Registracija</h1>
+<hr class="colorgraph"><br>
+<input [(ngModel)]="doctor.medical_number" type="text" class="form-control" name="medical_number" placeholder="Medical ID" autofocus="" style="width: 300px;"/> <br>
+<input [(ngModel)]="doctor.password" type="password" class="form-control" name="password" placeholder="Password" style="width: 300px;"/> <br>
+<input [(ngModel)]="doctor.phone" type="text" class="form-control" name="phone" placeholder="Phone"  style="width: 300px;"/> <br>
+<input [(ngModel)]="doctor.location" type="text" class="form-control" name="location" placeholder="Location"  style="width: 300px;"/> <br>
+<input [(ngModel)]="doctor.specialization" type="text" class="form-control" name="specialization" placeholder="Specialization"  style="width: 300px;"/> <br>
+<input [(ngModel)]="doctor.full_name" type="text" class="form-control" name="full_name" placeholder="Fullname"  style="width: 300px;"/> <br>
+
+
+<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Prijava" (click)="tryRegister()" style="width: 150px;">Registracija</button>
+
+

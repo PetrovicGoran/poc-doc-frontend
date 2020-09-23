@@ -1,0 +1,22 @@
+.my_message
+{
+  padding: 3%;
+  padding-left: 5%;
+  color: white;
+  margin-right: 20px;
+}
+
+.your_message
+{
+  padding: 3%;
+  padding-left: 5%;
+}
+
+.messages_containter
+{
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 300px;
+  width: auto;
+
+}

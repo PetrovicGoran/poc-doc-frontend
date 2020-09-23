@@ -1,0 +1,68 @@
+<h2 style="margin-top: 20px;;">Nova izposoja</h2>
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <input type="text" class="form-control"  placeholder="Naslov za izposojo">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-10">
+          <select class="form-control" [(ngModel)]="item.name">
+            <option>Invalidski voziček</option>
+            <option>Inhalator</option>
+            <option>Ojačevalec zvoka</option>
+            <option>Ortopedski pripomočki</option>
+            <option>Pripomočki za hojo</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-2">
+          <input list="suggested_quantity" name="quantity" class="form-control" placeholder="Q">
+          <datalist id="suggested_quantity"[(ngModel)]="item.quantity">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+            <option value="5">
+          </datalist>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Razlog prošnje</label>
+      <textarea class="form-control"  rows="3"></textarea>
+    </div>
+    <div class="row">
+      <div class="col-sm-6" ></div>
+      <div class="col-sm-4" style="margin-left: 55px;">
+        <button (click)="executeTransaction()" class="btn btn-m btn-primary btn-block" name="Submit" value="Izposoja" style="width: 150px;">Izposodi</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="container">
+            <div [ngStyle]="{'visibility': loaderVisible ? 'visible' : 'hidden'}" class="loader"></div>
+            <div class="checkmark_containter" [ngStyle]="{'visibility': checkVisible ? 'visible' : 'hidden'}">
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label [ngStyle]="{'visibility': loaderVisible ? 'visible' : 'hidden'}"
+        class="status_label" style="margin-top: 280px;">
+          Transakcija se izvaja...
+        </label>
+        <label [ngStyle]="{'visibility': checkVisible ? 'visible' : 'hidden'}"
+        class="status_label">
+          Transakcija je uspela
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+

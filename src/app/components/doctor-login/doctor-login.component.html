@@ -1,0 +1,7 @@
+<h1>Prijava zdravnika</h1>
+<hr class="colorgraph"><br>
+<input [(ngModel)]="doctor.medical_number" type="text" class="form-control" name="medical_number" placeholder="Medical ID" autofocus="" style="width: 300px;" /><br>
+<input [(ngModel)]="doctor.password" type="password" class="form-control" name="password" placeholder="Password" style="width: 300px;"/> <br>
+<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Prijava" (click)="tryLogin()" style="width: 150px;">Prijava</button>
+
+
