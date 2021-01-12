@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Patient } from '../models/patient';
 import { Router, ActivatedRoute } from '@angular/router';
+import{ GlobalConstants } from '../common/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +63,7 @@ export class PatientService {
 
     const sendData = JSON.stringify({"prk": privateKey});
 
-    return this.http.post<number>("http://192.168.18.7:8080/wallet/balance", {"prk": privateKey}, {headers, withCredentials: true});
+    return this.http.post<number>(GlobalConstants.apiURL + GlobalConstants.port + "/wallet/balance", {"prk": privateKey}, {headers, withCredentials: true});
       /*.subscribe((val) => {
         return val;
       },
@@ -76,14 +77,14 @@ export class PatientService {
         console.log("The POST observable is now completed.");
     });*/
     //.map().catch(err => {console.log(err)});
-    
-    
-      
+
+
+
   //);
-    
-    
-    
-    // pipe(num => {console.log(JSON.stringify(num, null, "\t")); return num});  
+
+
+
+    // pipe(num => {console.log(JSON.stringify(num, null, "\t")); return num});
     /*map(numb => {
         console.log(numb.toString());
         return numb;
@@ -91,7 +92,7 @@ export class PatientService {
 
     //console.log(JSON.stringify(test, null, "\t"));
     //return new Observable<number>();
-    
+
     //return 0;
   }
 

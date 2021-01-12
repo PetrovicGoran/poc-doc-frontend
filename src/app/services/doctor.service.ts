@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Doctor } from '../models/doctor';
+import{ GlobalConstants } from '../common/constants';
 
 
 @Injectable({
@@ -62,7 +63,7 @@ export class DoctorService {
 
     const sendData = JSON.stringify({"prk": privateKey});
 
-    return this.http.post<number>("http://192.168.18.7:8080/wallet/balance", {"prk": privateKey}, {headers, withCredentials: true});
+    return this.http.post<number>(GlobalConstants.apiURL + GlobalConstants.port + "/wallet/balance", {"prk": privateKey}, {headers, withCredentials: true});
 
   }
 }

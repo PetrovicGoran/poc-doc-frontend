@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MyTransaction } from '../models/my-transaction';
+import{ GlobalConstants } from '../common/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class TransactionService {
 
     const sendData = {"prk": privFrom, "recipantAddress": pubTo, "points": amount};
 
-    return this.http.post<string>("http://192.168.18.7:8080/transaction/newTransaction", sendData, {headers, withCredentials: true});
+    return this.http.post<string>(GlobalConstants.apiURL + GlobalConstants.port + "/transaction/newTransaction", sendData, {headers, withCredentials: true});
   }
 
   listMyTransactions(privateKey): Observable<MyTransaction[]> {
@@ -27,7 +28,7 @@ export class TransactionService {
 
     const sendData = {"privateKey": privateKey};
 
-    return this.http.post<MyTransaction[]>("http://192.168.18.7:8080/transaction/myTransactions", sendData, {headers, withCredentials: true});
+    return this.http.post<MyTransaction[]>(GlobalConstants.apiURL + GlobalConstants.port + "/transaction/myTransactions", sendData, {headers, withCredentials: true});
   }
 
   //METHODS FOR API TRANSACRIONS
