@@ -1,0 +1,13 @@
+<h1>Nova Terapija</h1>
+<hr class="colorgraph"><br>
+<input [(ngModel)]="therapy.therapyName" type="text" class="form-control" name="name" placeholder="Therapy name" autofocus="" style="width: 300px;"/> <br>
+<input [(ngModel)]="therapy.therapyDescription" type="text" class="form-control" name="description" placeholder="Description" style="width: 300px;"/> <br>
+<input [(ngModel)]="therapy.therapyStartDate" type="text" class="form-control" name="start_date" placeholder="Start date" style="width: 300px;"/> <br>
+<input [(ngModel)]="therapy.therapyEndDate" type="text" class="form-control" name="end_date" placeholder="End date" style="width: 300px;"/> <br>
+Daily dosage :<input [(ngModel)]="therapy.therapyRepetition" type="number" class="form-control" name="repetition" placeholder="Daily dosage" style="width: 300px;"/> <br>
+
+
+<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Kreiraj" (click)="createTherapy()" style="width: 150px;">Kreiraj</button>
+
+
+

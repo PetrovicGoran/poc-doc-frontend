@@ -21,6 +21,12 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { MessagesComponent } from './components/messages/messages.component';
 import { AddMessageComponent } from './components/add-message/add-message.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { DiagnosisListComponent } from './components/diagnosis-list/diagnosis-list.component';
+import { DiagnosisCreateComponent } from './components/diagnosis-create/diagnosis-create.component';
+import { DiagnosisEditComponent } from './components/diagnosis-edit/diagnosis-edit.component';
+import { TherapyListComponent } from './components/therapy-list/therapy-list.component';
+import { TherapyCreateComponent } from './components/therapy-create/therapy-create.component';
+import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
 
 
 const routes: Routes = [
@@ -42,7 +48,13 @@ const routes: Routes = [
   { path: 'transactions', component: TransactionsComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'chat/:doctor/:patient', component: ChatComponent },
-  { path: 'add-message', component: AddMessageComponent }
+  { path: 'add-message', component: AddMessageComponent },
+  { path: 'diagnosis-list/:_id', component: DiagnosisListComponent, canActivate: [LoginGuard] },
+  { path: 'diagnosis-create/:_id', component: DiagnosisCreateComponent, canActivate: [LoginGuard] },
+  { path: 'diagnosis-edit/:_id', component: DiagnosisEditComponent, canActivate: [LoginGuard] },
+  { path: 'therapy-list/:_id', component: TherapyListComponent, canActivate: [LoginGuard]},
+  { path: 'therapy-create/:_id/:_id', component: TherapyCreateComponent, canActivate: [LoginGuard] },
+  { path: 'therapy-edit/:_id', component: TherapyEditComponent, canActivate: [LoginGuard] }
 ];
 
 @NgModule({

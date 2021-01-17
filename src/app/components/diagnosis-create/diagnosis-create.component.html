@@ -1,0 +1,11 @@
+<h1>Kreiraj nova Diagnoza</h1>
+<hr class="colorgraph"><br>
+<input [(ngModel)]="diagnosis.diagnosisName" type="text" class="form-control" name="name" placeholder="Diagnosis name" autofocus="" style="width: 300px;"/> <br>
+<input [(ngModel)]="diagnosis.diagnosisDescription" type="text" class="form-control" name="description" placeholder="Description" style="width: 300px;"/> <br>
+
+
+<button class="btn btn-lg btn-primary btn-block" (click)="createDiagnosis()" name="Submit" value="Kreiraj"  style="width: 150px;">Kreiraj</button>
+<!-- (click)="tryCreate()" -->
+
+
+

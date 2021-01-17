@@ -23,6 +23,12 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { MessagesComponent } from './components/messages/messages.component';
 import { AddMessageComponent } from './components/add-message/add-message.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { DiagnosisListComponent } from './components/diagnosis-list/diagnosis-list.component';
+import { DiagnosisCreateComponent } from './components/diagnosis-create/diagnosis-create.component';
+import { DiagnosisEditComponent } from './components/diagnosis-edit/diagnosis-edit.component';
+import { TherapyListComponent } from './components/therapy-list/therapy-list.component';
+import { TherapyCreateComponent } from './components/therapy-create/therapy-create.component';
+import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,13 @@ import { ChatComponent } from './components/chat/chat.component';
     TransactionsComponent,
     MessagesComponent,
     AddMessageComponent,
-    ChatComponent
+    ChatComponent,
+    DiagnosisListComponent,
+    DiagnosisCreateComponent,
+    DiagnosisEditComponent,
+    TherapyListComponent,
+    TherapyCreateComponent,
+    TherapyEditComponent
   ],
   imports: [
     BrowserModule,

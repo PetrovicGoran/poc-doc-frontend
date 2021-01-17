@@ -11,7 +11,10 @@
             <div class="col-sm-8">
             </div>
             <div class="col-sm-4">
-              <a [routerLink]="['/patient-grade', patient._id]"><i class="fa fa-star fa-2x" aria-hidden="true" style="margin-right:20px"></i></a>
+              <!-- <a [routerLink]="['/patient-grade', patient._id]"><i class="fa fa-star fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
+              <!-- <a [routerLink]="['/diagnosis-list', patient._id]"><i class="fa fa-book fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
+              <a [routerLink]="['/diagnosis-create', patient._id]"><i class="fa fa-book fa-2x" aria-hidden="true" style="margin-right:20px"></i></a>
+              <!-- <a [routerLink]="['/therapy-create', patient._id]"><i class="fa fa-medkit fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
               <a [routerLink]="['/chat/', doctor._id ,patient._id]"><i class="fa fa-comment fa-2x" aria-hidden="true"></i></a>
             </div>
           </div>
