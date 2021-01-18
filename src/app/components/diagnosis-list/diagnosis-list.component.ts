@@ -21,7 +21,9 @@ export class DiagnosisListComponent implements OnInit {
     full_name: '', phone: '', location: '', grading_points: 0, grade: 0, private_key: "", public_key: ''
   };
 
-  diagnoses: Diagnosis[]
+  diagnoses: Diagnosis[];
+  patients: Patient[];
+  goToPatient: string;
   constructor(private diagnosisServise: DiagnosisService, private patientServise: PatientService) { }
 
   getAllDiagnosis(): void {
@@ -57,6 +59,21 @@ export class DiagnosisListComponent implements OnInit {
 
   }
 
+  getPatient(diagnosis : Diagnosis) : void {
+    this.patientServise.getPatients().subscribe( patients => {
+      this.patients = patients;
+      for (var i = 0; i < this.patients.length; i++) {
+        if (this.patients[i].public_key == diagnosis.patientPublicKey) {
+         diagnosis.userId = this.patients[i]._id;
+        }
+      }
+    },
+    error => {
+      window.alert("Error getting data");
+      console.log(error);
+    });
+  }
+
 
   ngOnInit(): void {
     var patientId = window.location.href.split('/')[4];
@@ -66,9 +83,12 @@ export class DiagnosisListComponent implements OnInit {
         .subscribe(patient => {
           this.patient = patient;
           this.diagnosisServise.getDiagnosisPatient(this.patient.public_key).subscribe(diagnoses => {
-            if (diagnoses != null && diagnoses.length > 0) {
+            if (diagnoses != null) {
               this.diagnoses = diagnoses;
-              console.log("patient personal " + diagnoses);
+              for (var i = 0; i < this.diagnoses.length; i++) {
+                this.getPatient(diagnoses[i]);
+              }
+              console.log("patient personal " + JSON.stringify(diagnoses, null, "\t"));
             } else {
               console.log("patient has not been diagnosed!");
             }

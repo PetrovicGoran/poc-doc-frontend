@@ -4,4 +4,5 @@ export class Diagnosis {
     diagnosisDescription: string;
     doctorPrivateKey: string;
     patientPublicKey: string;
+    userId : string;
 }

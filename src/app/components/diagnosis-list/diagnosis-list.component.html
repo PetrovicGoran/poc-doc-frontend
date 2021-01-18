@@ -14,14 +14,13 @@
                                 <h4>{{diagnosis.description}}</h4>
                             </div>
                             <div class="col-sm-4">
-                                <a [routerLink]="['/diagnosis-create', patient._id]"><i class="fa fa-plus-circle fa-2x"
-                                        aria-hidden="true" style="margin-right:20px"></i></a>
-
                                 <!-- <a [routerLink]="['/therapy-create', patient._id, diagnosis.id]"><i
                                         class="fa fa-plus-circle fa-2x" aria-hidden="true"
                                         style="margin-right:20px"></i></a> -->
-                                <a [routerLink]="['/therapy-list/', patient._id, diagnosis.id]"><i
-                                        class="fa fa-list fa-2x" aria-hidden="true"></i></a>
+                                <a [routerLink]="['/therapy-create/', diagnosis.userId, diagnosis.id]">
+                                  <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+                                   <a [routerLink]="['/therapy-list/', diagnosis.userId]">
+                                  <i class="fa fa-list fa-2x" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
