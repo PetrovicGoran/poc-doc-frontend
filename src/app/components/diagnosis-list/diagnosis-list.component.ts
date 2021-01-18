@@ -20,17 +20,19 @@ export class DiagnosisListComponent implements OnInit {
     _id: '', medical_number: '', password: '',
     full_name: '', phone: '', location: '', grading_points: 0, grade: 0, private_key: "", public_key: ''
   };
-  
-  diagnoses:Diagnosis[]
+
+  diagnoses: Diagnosis[]
   constructor(private diagnosisServise: DiagnosisService, private patientServise: PatientService) { }
 
   getAllDiagnosis(): void {
     if (localStorage.getItem('mode') == 'patient') {
       this.patient = JSON.parse(window.localStorage.getItem('currentUser'));
       this.diagnosisServise.getDiagnosisPatient(this.patient.public_key).subscribe(diagnoses => {
-        if (diagnoses != null) {
+        if (diagnoses != null && diagnoses.length > 0) {
           this.diagnoses = diagnoses;
           console.log("patient " + diagnoses);
+        } else {
+          console.log("patient has not been diagnosed!");
         }
       },
         error => {
@@ -40,9 +42,11 @@ export class DiagnosisListComponent implements OnInit {
     } else {
       this.doctor = JSON.parse(window.localStorage.getItem('currentUser'));
       this.diagnosisServise.getDiagnosisDoctor(this.doctor.private_key).subscribe(diagnoses => {
-        if (diagnoses != null) {
+        if (diagnoses != null && diagnoses.length > 0) {
           this.diagnoses = diagnoses;
           console.log("doctor" + diagnoses);
+        } else {
+          console.log("patient has not been diagnosed!");
         }
       },
         error => {
@@ -50,33 +54,35 @@ export class DiagnosisListComponent implements OnInit {
           console.log(error);
         });
     }
-    
+
   }
 
 
   ngOnInit(): void {
     var patientId = window.location.href.split('/')[4];
     //called when u e a doctore n u click on patient list user
-    if(patientId != null && patientId != "") {
+    if (patientId != null && patientId != "") {
       this.patientServise.getPatient(patientId)
-      .subscribe(patient => {
-        this.patient = patient;
-        this.diagnosisServise.getDiagnosisPatient(this.patient.public_key).subscribe(diagnoses => {
-          if (diagnoses != null) {
-            this.diagnoses = diagnoses;
-            console.log("patient personal " + diagnoses);
-          }
-        },
-          error => {
-            window.alert("Error getting data");
-            console.log(error);
-          });
-      });
+        .subscribe(patient => {
+          this.patient = patient;
+          this.diagnosisServise.getDiagnosisPatient(this.patient.public_key).subscribe(diagnoses => {
+            if (diagnoses != null && diagnoses.length > 0) {
+              this.diagnoses = diagnoses;
+              console.log("patient personal " + diagnoses);
+            } else {
+              console.log("patient has not been diagnosed!");
+            }
+          },
+            error => {
+              window.alert("Error getting data");
+              console.log(error);
+            });
+        });
     } else {
       //this is from status bar clicked
       this.getAllDiagnosis();
     }
-    
+
   }
 
 }

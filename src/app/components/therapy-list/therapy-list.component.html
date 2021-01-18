@@ -1,1 +1,39 @@
-<p>therapy-list works!</p>
+<ng-container *ngIf="therapies?.length > 0, else noTherapies">
+    <div *ngFor="let therapy of therapies" style="margin-bottom: 50px;margin-top: 30px;">
+        <div class="row" style="margin-left: 30px;">
+            <div class="col-sm-2">
+                <i class="fa fa-thermometer-empty fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h4>{{therapy.name}}</h4>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>Opis: {{therapy.description}}</h3>
+                                <h4>Začne: {{therapy.startDate}}</h4>
+                                <h4>Konča: {{therapy.endDate}}</h4>
+                                <h4>Dnevni odmerek: {{therapy.repetition}} krat</h4>
+                            </div>
+                            <div class="col-sm-4">
+                                <a [routerLink]="['/therapy-create', patient._id, diagnosis.id]"><i class="fa fa-plus-circle fa-2x"
+                                        aria-hidden="true" style="margin-right:20px"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+</ng-container>
+
+
+<ng-template #noTherapies>
+    <div>
+        <h3>This diagnosis has not therapies!</h3>
+        <a [routerLink]="['/therapy-create', patient._id, diagnosis.id]"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                style="margin-right:20px"></i></a>
+    </div>
+</ng-template>

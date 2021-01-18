@@ -1,4 +1,4 @@
-<ng-container *ngIf="diagnoses">
+<ng-container *ngIf="diagnoses?.length > 0, else notDiagnosed">
     <div *ngFor="let diagnosis of diagnoses" style="margin-bottom: 50px;margin-top: 30px;">
         <div class="row" style="margin-left: 30px;">
             <div class="col-sm-2">
@@ -14,11 +14,14 @@
                                 <h4>{{diagnosis.description}}</h4>
                             </div>
                             <div class="col-sm-4">
-                                <!-- <a [routerLink]="['/patient-grade', patient._id]"><i class="fa fa-star fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
-                                <!-- <a [routerLink]="['/diagnosis', patient._id]"><i class="fa fa-book fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
-                                <a [routerLink]="['/therapy-create', diagnosis._id]"><i class="fa fa-plus-circle fa-2x"
+                                <a [routerLink]="['/diagnosis-create', patient._id]"><i class="fa fa-plus-circle fa-2x"
                                         aria-hidden="true" style="margin-right:20px"></i></a>
-                                <!-- <a [routerLink]="['/chat/', doctor._id ,patient._id]"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a> -->
+
+                                <!-- <a [routerLink]="['/therapy-create', patient._id, diagnosis.id]"><i
+                                        class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                                        style="margin-right:20px"></i></a> -->
+                                <a [routerLink]="['/therapy-list/', patient._id, diagnosis.id]"><i
+                                        class="fa fa-list fa-2x" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -27,12 +30,14 @@
         </div>
         <br>
     </div>
+
 </ng-container>
-<ng-container ng-if="$diagnoses.length == 0" ? true : false>
+
+
+<ng-template #notDiagnosed>
     <div>
         <h3>Patient has not been diagnosed!</h3>
-        <h6>Patient id = {{patient._id}}</h6>
         <a [routerLink]="['/diagnosis-create', patient._id]"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"
                 style="margin-right:20px"></i></a>
     </div>
-</ng-container>
+</ng-template>
