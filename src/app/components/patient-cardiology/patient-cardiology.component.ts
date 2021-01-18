@@ -33,9 +33,11 @@ export class PatientCardiologyComponent implements OnInit {
         console.log(patient.private_key);
         this.cardiologyService.getAllMeasurementsPatient(this.patient.private_key)
         .subscribe(measures => {
-          if (measures != null) {
+          if (measures != null && measures.length > 0) {
             this.measures = measures;
             console.log(measures);
+          }else {
+            console.log("Patient has not been measured!");
           }
         },
           error => {
