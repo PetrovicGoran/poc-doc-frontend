@@ -6,6 +6,7 @@ import { PatientRegisterComponent } from './components/patient-register/patient-
 import { PatientProfileComponent} from './components/patient-profile/patient-profile.component';
 import { PatientListComponent } from './components/patient-list/patient-list.component';
 import { PatientGradeComponent} from './components/patient-grade/patient-grade.component';
+import { PatientCardiologyComponent } from './components/patient-cardiology/patient-cardiology.component';
 import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
 import { DoctorRegisterComponent } from './components/doctor-register/doctor-register.component';
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
@@ -27,6 +28,7 @@ import { DiagnosisEditComponent } from './components/diagnosis-edit/diagnosis-ed
 import { TherapyListComponent } from './components/therapy-list/therapy-list.component';
 import { TherapyCreateComponent } from './components/therapy-create/therapy-create.component';
 import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 const routes: Routes = [
@@ -38,7 +40,7 @@ const routes: Routes = [
   { path: 'doctor-login', component: DoctorLoginComponent },
   { path: 'doctor-register', component: DoctorRegisterComponent },
   { path: 'doctor-profile', component: DoctorProfileComponent, canActivate: [LoginGuard] },
-  { path:'doctor-grade/:_id', component: DoctorGradeComponent, canActivate: [LoginGuard] },
+  { path: 'doctor-grade/:_id', component: DoctorGradeComponent, canActivate: [LoginGuard] },
   { path: 'doctor-list', component: DoctorListComponent, canActivate: [LoginGuard] },
   { path: 'home-doctor', component: HomeDoctorComponent, canActivate: [LoginGuard] },
   { path: 'borrow-new', component : BorrowNewComponent, canActivate: [LoginGuard] },
@@ -49,16 +51,21 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent },
   { path: 'chat/:doctor/:patient', component: ChatComponent },
   { path: 'add-message', component: AddMessageComponent },
-  { path: 'diagnosis-list/:_id', component: DiagnosisListComponent, canActivate: [LoginGuard] },
+  { path: 'diagnosis-list', component: DiagnosisListComponent, canActivate: [LoginGuard] },
+  { path: 'diagnosis-list/:id', component: DiagnosisListComponent, canActivate: [LoginGuard] },
   { path: 'diagnosis-create/:_id', component: DiagnosisCreateComponent, canActivate: [LoginGuard] },
   { path: 'diagnosis-edit/:_id', component: DiagnosisEditComponent, canActivate: [LoginGuard] },
-  { path: 'therapy-list/:_id', component: TherapyListComponent, canActivate: [LoginGuard]},
+  { path: 'therapy-list', component: TherapyListComponent, canActivate: [LoginGuard]},
+  { path: 'therapy-list/:id', component: TherapyListComponent, canActivate: [LoginGuard]},
+  { path: 'therapy-list/:id/:id', component: TherapyListComponent, canActivate: [LoginGuard]},
   { path: 'therapy-create/:_id/:_id', component: TherapyCreateComponent, canActivate: [LoginGuard] },
-  { path: 'therapy-edit/:_id', component: TherapyEditComponent, canActivate: [LoginGuard] }
+  { path: 'therapy-edit/:_id', component: TherapyEditComponent, canActivate: [LoginGuard] },
+  { path: 'patient-cardiology/:_id', component: PatientCardiologyComponent, canActivate: [LoginGuard]}
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), ChartsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

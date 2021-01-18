@@ -29,6 +29,7 @@ import { DiagnosisEditComponent } from './components/diagnosis-edit/diagnosis-ed
 import { TherapyListComponent } from './components/therapy-list/therapy-list.component';
 import { TherapyCreateComponent } from './components/therapy-create/therapy-create.component';
 import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
+import { PatientCardiologyComponent } from './components/patient-cardiology/patient-cardiology.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.com
     DiagnosisEditComponent,
     TherapyListComponent,
     TherapyCreateComponent,
-    TherapyEditComponent
+    TherapyEditComponent,
+    PatientCardiologyComponent
   ],
   imports: [
     BrowserModule,

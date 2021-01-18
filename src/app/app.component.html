@@ -40,13 +40,11 @@
           </ng-template>
         </li>
         <li *ngIf="isLoggedIn()" class="nav-item">
-          <div *ngIf="isPatient(); else doctorMessages">
-            <a class="nav-link" routerLink="/diagnosis-list"> Diagnoze</a>
-          </div>
-          <ng-template #doctorMessages>
-            <a class="nav-link" routerLink="/diagnosis-list"> Diagnoze</a>
-          </ng-template>
+            <a class="nav-link" routerLink="/diagnosis-list"> Dijagnoze</a>
         </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/therapy-list"> Terapije </a>
+      </li>
         <!--<li *ngIf="isLoggedIn()" class="nav-item">
           <div *ngIf="isPatient()">
             <div class="dropdown">

@@ -22,14 +22,27 @@ export class DiagnosisService {
   }
 
   //after
-  public getDiagnosis (diagnosisId): Observable<Diagnosis> {
-    return this.http.get<Diagnosis>(DiagnosisService.host +'diagnoses/'
-    + diagnosisId);
+  public getDiagnosisDoctor (doctorPrivateKey): Observable<Diagnosis[]> {
+    const headers = new HttpHeaders(); 
+    var data = {"doctorPrivateKey" : doctorPrivateKey}
+    return this.http.post<Diagnosis[]>(DiagnosisService.host + '/blockchain/getDiagnosisDoctor', data, 
+    { headers, withCredentials: true }).pipe(
+      map(diagnoses => {
+          return diagnoses;
+      }
+     ));
   }
 
   //after
-  public getAllDiagnosis (): Observable<Diagnosis[]> {
-    return this.http.get<Diagnosis[]>(DiagnosisService.host +'diagnoses/');
+  public getDiagnosisPatient (patientPublicKey): Observable<Diagnosis[]> {
+    const headers = new HttpHeaders(); 
+    var data = {"patientPublicKey" : patientPublicKey}
+    return this.http.post<Diagnosis[]>(DiagnosisService.host + '/blockchain/getDiagnosisPatient', data, 
+    { headers, withCredentials: true }).pipe(
+      map(diagnoses => {
+          return diagnoses;
+      }
+     ));
   }
 
 

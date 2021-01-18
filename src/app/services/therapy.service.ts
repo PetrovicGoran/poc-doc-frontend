@@ -20,12 +20,25 @@ export class TherapyService {
      therapy, {headers, withCredentials: true});
   }
 
-  public getDiagnosis (diagnosisId): Observable<Therapy> {
-    return this.http.get<Therapy>(TherapyService.host +'therapies/'
-    + diagnosisId);
+  public getTherapiesDoctor (doctorPrivateKey): Observable<Therapy[]> {
+    const headers = new HttpHeaders(); 
+    var data = {"doctorPrivateKey" : doctorPrivateKey}
+    return this.http.post<Therapy[]>(TherapyService.host + '/blockchain/getTherapiesDoctor', data, 
+    { headers, withCredentials: true }).pipe(
+      map(therapies => {
+          return therapies;
+      }
+     ));
   }
 
-  public getAllDiagnosis (): Observable<Therapy[]> {
-    return this.http.get<Therapy[]>(TherapyService.host +'therapies/');
+  public getTherapiesPatient (patientPublicKey): Observable<Therapy[]> {
+    const headers = new HttpHeaders(); 
+    var data = {"patientPublicKey" : patientPublicKey}
+    return this.http.post<Therapy[]>(TherapyService.host + '/blockchain/getTherapiesPatient', data, 
+    { headers, withCredentials: true }).pipe(
+      map(therapies => {
+          return therapies;
+      }
+     ));
   }
 }

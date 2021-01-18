@@ -14,8 +14,10 @@
               <!-- <a [routerLink]="['/patient-grade', patient._id]"><i class="fa fa-star fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
               <!-- <a [routerLink]="['/diagnosis-list', patient._id]"><i class="fa fa-book fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
               <a [routerLink]="['/diagnosis-create', patient._id]"><i class="fa fa-book fa-2x" aria-hidden="true" style="margin-right:20px"></i></a>
-              <!-- <a [routerLink]="['/therapy-create', patient._id]"><i class="fa fa-medkit fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
-              <a [routerLink]="['/chat/', doctor._id ,patient._id]"><i class="fa fa-comment fa-2x" aria-hidden="true"></i></a>
+              <a [routerLink]="['/patient-cardiology', patient._id]"><i class="fa fa-heartbeat fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> 
+              <a [routerLink]="['/chat/', doctor._id ,patient._id]"><i class="fa fa-comment fa-2x" aria-hidden="true" style="margin-right:20px"></i></a>
+              <a [routerLink]="['/diagnosis-list/', patient._id]"><i class="fa fa-list fa-2x" aria-hidden="true" style="margin-right:20px"></i></a>
+              <a [routerLink]="['/therapy-list/', patient._id]"><i class="fa fa-thermometer-empty fa-2x" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
