@@ -1,4 +1,35 @@
-<div *ngFor="let measure of measures" style="margin-bottom: 50px;margin-top: 30px;">
+<!-- <div *ngFor="let measure of measures" style="margin-bottom: 50px;margin-top: 30px;">
     <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;">
     </div>
-</div>
+</div> -->
+
+<ng-container *ngIf="measures?.length > 0, else noMeasures">
+    <div *ngFor="let measure of measures" style="margin-bottom: 50px;margin-top: 30px;">
+        <div class="row" style="margin-left: 30px;">
+            <div class="col-sm-2">
+                <i class="fa fa-heartbeat fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h4>Measures</h4>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>Measures exist</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+</ng-container>
+
+
+<ng-template #noMeasures>
+    <div>
+        <h3>Patient has not been measured!</h3>
+    </div>
+</ng-template>
