@@ -13,7 +13,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DiagnosisCreateComponent implements OnInit {
 
-  diagnosis: Diagnosis = { id: '', diagnosisName: '', diagnosisDescription: '', doctorPrivateKey: "", patientPublicKey: '' };
+  diagnosis: Diagnosis = { id: '', diagnosisName: '', diagnosisDescription: '', doctorPrivateKey: "",
+   patientPublicKey: '', userId : '' };
   doctor: Doctor = {
     _id: '', medical_number: '', password: '', full_name: '',
     specialization: '', phone: '', location: '', grading_points: 0, grade: 0, private_key: "", public_key: ''

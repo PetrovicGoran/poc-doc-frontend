@@ -30,6 +30,7 @@ import { TherapyListComponent } from './components/therapy-list/therapy-list.com
 import { TherapyCreateComponent } from './components/therapy-create/therapy-create.component';
 import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
 import { PatientCardiologyComponent } from './components/patient-cardiology/patient-cardiology.component';
+import { PendingListComponent } from './components/pending-list/pending-list.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { PatientCardiologyComponent } from './components/patient-cardiology/pati
     TherapyListComponent,
     TherapyCreateComponent,
     TherapyEditComponent,
-    PatientCardiologyComponent
+    PatientCardiologyComponent,
+    PendingListComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,8 @@ import { DiagnosisService } from '../../services/diagnosis.service';
 })
 export class TherapyListComponent implements OnInit {
 
-  diagnosis: Diagnosis = { id: '', diagnosisName: '', diagnosisDescription: '', doctorPrivateKey: "", patientPublicKey: '' };
+  diagnosis: Diagnosis = { id: '', diagnosisName: '', diagnosisDescription: '',
+  doctorPrivateKey: "", patientPublicKey: '', userId: '' };
 
   doctor: Doctor = {
     _id: '', medical_number: '', password: '', full_name: '',
