@@ -28,6 +28,7 @@ import { DiagnosisEditComponent } from './components/diagnosis-edit/diagnosis-ed
 import { TherapyListComponent } from './components/therapy-list/therapy-list.component';
 import { TherapyCreateComponent } from './components/therapy-create/therapy-create.component';
 import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
+import { PendingListComponent } from './components/pending-list/pending-list.component';
 import { ChartsModule } from 'ng2-charts';
 
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'patient-profile', component: PatientProfileComponent, canActivate: [LoginGuard] },
   { path: 'patient-grade/:_id', component: PatientGradeComponent, canActivate: [LoginGuard]},
   { path: 'patient-list', component: PatientListComponent, canActivate: [LoginGuard]},
+  { path: 'patient-cardiology/:_id', component: PatientCardiologyComponent, canActivate: [LoginGuard]},
   { path: 'doctor-login', component: DoctorLoginComponent },
   { path: 'doctor-register', component: DoctorRegisterComponent },
   { path: 'doctor-profile', component: DoctorProfileComponent, canActivate: [LoginGuard] },
@@ -60,7 +62,8 @@ const routes: Routes = [
   { path: 'therapy-list/:id/:id', component: TherapyListComponent, canActivate: [LoginGuard]},
   { path: 'therapy-create/:_id/:_id', component: TherapyCreateComponent, canActivate: [LoginGuard] },
   { path: 'therapy-edit/:_id', component: TherapyEditComponent, canActivate: [LoginGuard] },
-  { path: 'patient-cardiology/:_id', component: PatientCardiologyComponent, canActivate: [LoginGuard]}
+  { path: 'pending-list/:_id', component: PendingListComponent, canActivate: [LoginGuard] }
+
 
 ];
 
