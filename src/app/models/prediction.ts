@@ -1,7 +1,6 @@
 export class Prediction {
   _id : string;
   prediction : string;
-	filepath : string;
 	date : string;
 	image : string;
 	confirmed : boolean;

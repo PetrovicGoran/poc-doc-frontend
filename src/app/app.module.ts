@@ -31,6 +31,8 @@ import { TherapyCreateComponent } from './components/therapy-create/therapy-crea
 import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
 import { PatientCardiologyComponent } from './components/patient-cardiology/patient-cardiology.component';
 import { PendingListComponent } from './components/pending-list/pending-list.component';
+import { PredictionShowComponent } from './components/prediction-show/prediction-show.component';
+import { PatientEditComponent } from './components/patient-edit/patient-edit.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { PendingListComponent } from './components/pending-list/pending-list.com
     TherapyCreateComponent,
     TherapyEditComponent,
     PatientCardiologyComponent,
-    PendingListComponent
+    PendingListComponent,
+    PredictionShowComponent,
+    PatientEditComponent
   ],
   imports: [
     BrowserModule,

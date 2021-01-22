@@ -7,6 +7,7 @@ import { PatientProfileComponent} from './components/patient-profile/patient-pro
 import { PatientListComponent } from './components/patient-list/patient-list.component';
 import { PatientGradeComponent} from './components/patient-grade/patient-grade.component';
 import { PatientCardiologyComponent } from './components/patient-cardiology/patient-cardiology.component';
+import { PatientEditComponent } from './components/patient-edit/patient-edit.component';
 import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
 import { DoctorRegisterComponent } from './components/doctor-register/doctor-register.component';
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
@@ -29,6 +30,7 @@ import { TherapyListComponent } from './components/therapy-list/therapy-list.com
 import { TherapyCreateComponent } from './components/therapy-create/therapy-create.component';
 import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
 import { PendingListComponent } from './components/pending-list/pending-list.component';
+import { PredictionShowComponent } from './components/prediction-show/prediction-show.component';
 import { ChartsModule } from 'ng2-charts';
 
 
@@ -39,6 +41,7 @@ const routes: Routes = [
   { path: 'patient-grade/:_id', component: PatientGradeComponent, canActivate: [LoginGuard]},
   { path: 'patient-list', component: PatientListComponent, canActivate: [LoginGuard]},
   { path: 'patient-cardiology/:_id', component: PatientCardiologyComponent, canActivate: [LoginGuard]},
+  { path: 'patient-edit/:_id', component: PatientEditComponent, canActivate: [LoginGuard]},
   { path: 'doctor-login', component: DoctorLoginComponent },
   { path: 'doctor-register', component: DoctorRegisterComponent },
   { path: 'doctor-profile', component: DoctorProfileComponent, canActivate: [LoginGuard] },
@@ -62,7 +65,9 @@ const routes: Routes = [
   { path: 'therapy-list/:id/:id', component: TherapyListComponent, canActivate: [LoginGuard]},
   { path: 'therapy-create/:_id/:_id', component: TherapyCreateComponent, canActivate: [LoginGuard] },
   { path: 'therapy-edit/:_id', component: TherapyEditComponent, canActivate: [LoginGuard] },
-  { path: 'pending-list/:_id', component: PendingListComponent, canActivate: [LoginGuard] }
+  { path: 'pending-list/doctor/:_id', component: PendingListComponent, canActivate: [LoginGuard] },
+  { path: 'pending-list/patient/:_id', component: PendingListComponent, canActivate: [LoginGuard] },
+  { path: 'prediction-show/:_id', component: PredictionShowComponent, canActivate: [LoginGuard] }
 
 
 ];

@@ -1,1 +1,37 @@
-<p>pending-list works!</p>
+<ng-container *ngIf="pendings?.length > 0, else noPending">
+    <div *ngFor="let pending of pendings" style="margin-bottom: 50px;margin-top: 30px;">
+        <div class="row" style="margin-left: 30px;">
+            <div class="col-sm-2">
+                <i class="fa fa-wheelchair-alt fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h3>Opis: {{pending.prediction}}</h3>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h4>Datum: {{pending.date}}</h4>
+                            </div>
+                            <div class="col-sm-4">
+                                <!-- <a [routerLink]="['/patient-grade', patient._id]"><i class="fa fa-star fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
+                                <!-- <a [routerLink]="['/diagnosis-list', patient._id]"><i class="fa fa-book fa-2x" aria-hidden="true" style="margin-right:20px"></i></a> -->
+                                <a [routerLink]="['/prediction-show/', pending._id ]"><i class="fa fa-search fa-2x" aria-hidden="true"
+                                        style="margin-right:20px"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+</ng-container>
+
+
+<ng-template #noPending>
+    <div>
+        <h3>No pendings</h3>
+    </div>
+</ng-template>

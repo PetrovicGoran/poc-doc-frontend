@@ -47,10 +47,10 @@
         </li>
         <li *ngIf="isLoggedIn()" class="nav-item">
           <div *ngIf="isPatient(); else doctorProfile">
-            <a class="nav-link" routerLink="/patient-prediction"> Make Prediction</a>
+            <a class="nav-link" routerLink="/pending-list/patient/{{patient._id}}"> Make Prediction</a>
           </div>
           <ng-template #doctorProfile>
-            <a class="nav-link" routerLink="/doctor-prediction"> Show Predictions</a>
+            <a class="nav-link" routerLink="/pending-list/doctor/{{doctor._id}}"> Show Predictions</a>
           </ng-template>
         </li>
         <!--<li *ngIf="isLoggedIn()" class="nav-item">

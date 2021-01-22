@@ -1,0 +1,36 @@
+<table class="table table-hover" style="font-size:20px;">
+    <tbody>
+        <tr>
+            <th scope="row">Kreiraj Diagnozo</th>
+            <td><a [routerLink]="['/diagnosis-create', patient._id]"><i class="fa fa-book fa-2x" aria-hidden="true"
+                        style="margin-right:20px"></i></a></td>
+        </tr>
+        <tr>
+            <th scope="row">Lista Diagnoz</th>
+            <td colspan="2"><a [routerLink]="['/diagnosis-list/', patient._id]"><i class="fa fa-list fa-2x"
+                        aria-hidden="true" style="margin-right:20px"></i></a></td>
+        </tr>
+        <tr>
+            <th scope="row">Lista Terapije</th>
+            <td colspan="2"><a [routerLink]="['/therapy-list/', doctor._id ,patient._id]"><i
+                        class="fa fa-thermometer-empty fa-2x" aria-hidden="true" style="margin-right:20px"></i></a></td>
+        </tr>
+        <tr>
+            <th scope="row">Pacient analiza</th>
+            <td colspan="2"><a [routerLink]="['/patient-cardiology', patient._id]"><i class="fa fa-heartbeat fa-2x"
+                        aria-hidden="true" style="margin-right:20px"></i></a></td>
+        </tr>
+        <tr>
+            <th scope="row">Lista napovedi</th>
+            <td colspan="2">
+                <a class="nav-link" routerLink="/pending-list/patient/{{patient._id}}"><i class="fa fa-search fa-2x"
+                        aria-hidden="true" style="margin-right:20px"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Klepet</th>
+            <td colspan="2"><a [routerLink]="['/chat/', doctor._id ,patient._id]"><i class="fa fa-comment fa-2x"
+                        aria-hidden="true" style="margin-right:20px"></i></a></td>
+        </tr>
+    </tbody>
+</table>

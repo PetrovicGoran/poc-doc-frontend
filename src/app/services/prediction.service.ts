@@ -15,18 +15,20 @@ export class PredictionService {
   constructor(private http: HttpClient) { }
 
   public getPredictionsDoctor (doctor_id): Observable<Prediction[]> {
-    const headers = new HttpHeaders();
-    return this.http.get<Prediction[]>(PredictionService.host + '/prediction/doctor/' + doctor_id);
+    return this.http.get<Prediction[]>(PredictionService.host + 'prediction/doctor/' + doctor_id);
   }
 
   public getPredictionsPatient (patient_id): Observable<Prediction[]> {
-    const headers = new HttpHeaders();
-    return this.http.get<Prediction[]>(PredictionService.host + '/prediction/user/' + patient_id);
+    return this.http.get<Prediction[]>(PredictionService.host + 'prediction/user/' + patient_id);
+  }
+
+  public getPrediction (prediction_id): Observable<Prediction> {
+    return this.http.get<Prediction>(PredictionService.host + 'prediction/' + prediction_id);
   }
 
   public updatePrediction(prediction):Observable<Prediction> {
     const headers = new HttpHeaders();
-    return this.http.put<Prediction>(PredictionService.host + '/prediction/' + prediction._id, prediction,
+    return this.http.put<Prediction>(PredictionService.host + 'prediction/' + prediction._id, prediction,
     { headers, withCredentials: true }).pipe(
       map(prediction => {
         if (prediction) {
