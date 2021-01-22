@@ -33,6 +33,7 @@ import { PatientCardiologyComponent } from './components/patient-cardiology/pati
 import { PendingListComponent } from './components/pending-list/pending-list.component';
 import { PredictionShowComponent } from './components/prediction-show/prediction-show.component';
 import { PatientEditComponent } from './components/patient-edit/patient-edit.component';
+import { AnalysesListComponent } from './components/analyses-list/analyses-list.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { PatientEditComponent } from './components/patient-edit/patient-edit.com
     PatientCardiologyComponent,
     PendingListComponent,
     PredictionShowComponent,
-    PatientEditComponent
+    PatientEditComponent,
+    AnalysesListComponent
   ],
   imports: [
     BrowserModule,

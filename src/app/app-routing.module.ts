@@ -31,6 +31,7 @@ import { TherapyCreateComponent } from './components/therapy-create/therapy-crea
 import { TherapyEditComponent } from './components/therapy-edit/therapy-edit.component';
 import { PendingListComponent } from './components/pending-list/pending-list.component';
 import { PredictionShowComponent } from './components/prediction-show/prediction-show.component';
+import { AnalysesListComponent } from './components/analyses-list/analyses-list.component';
 import { ChartsModule } from 'ng2-charts';
 
 
@@ -67,7 +68,9 @@ const routes: Routes = [
   { path: 'therapy-edit/:_id', component: TherapyEditComponent, canActivate: [LoginGuard] },
   { path: 'pending-list/doctor/:_id', component: PendingListComponent, canActivate: [LoginGuard] },
   { path: 'pending-list/patient/:_id', component: PendingListComponent, canActivate: [LoginGuard] },
-  { path: 'prediction-show/:_id', component: PredictionShowComponent, canActivate: [LoginGuard] }
+  { path: 'prediction-show/:_id', component: PredictionShowComponent, canActivate: [LoginGuard] },
+  { path: 'analyses-list/patient/:_id', component: AnalysesListComponent, canActivate: [LoginGuard] },
+  { path: 'analyses-list/doctor/:_id', component: AnalysesListComponent, canActivate: [LoginGuard] }
 
 
 ];

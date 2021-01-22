@@ -47,10 +47,18 @@
         </li>
         <li *ngIf="isLoggedIn()" class="nav-item">
           <div *ngIf="isPatient(); else doctorProfile">
-            <a class="nav-link" routerLink="/pending-list/patient/{{patient._id}}"> Make Prediction</a>
+            <a class="nav-link" routerLink="/pending-list/patient/{{patient._id}}">Moji zahtevi</a>
           </div>
           <ng-template #doctorProfile>
-            <a class="nav-link" routerLink="/pending-list/doctor/{{doctor._id}}"> Show Predictions</a>
+            <a class="nav-link" routerLink="/pending-list/doctor/{{doctor._id}}">Na cakanju</a>
+          </ng-template>
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <div *ngIf="isPatient(); else doctorAnalysis">
+            <a class="nav-link" routerLink="/analyses-list/patient/{{patient._id}}">Moje analize</a>
+          </div>
+          <ng-template #doctorAnalysis>
+            <a class="nav-link" routerLink="/analyses-list/doctor/{{doctor._id}}">Analize</a>
           </ng-template>
         </li>
         <!--<li *ngIf="isLoggedIn()" class="nav-item">

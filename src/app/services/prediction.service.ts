@@ -39,6 +39,8 @@ export class PredictionService {
     ));
   }
 
-
+  public deletePrediction(prediction_id): Observable<string> {
+    return this.http.delete<string>(PredictionService.host + 'prediction/' + prediction_id);
+  }
 
 }

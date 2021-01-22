@@ -21,15 +21,15 @@
                 <ng-container *ngIf="!isPatient">
                     <tr>
                         <th scope="row">Odločba</th>
-                        <td colspan="2"><button type="button" class="btn btn-primary"
+                        <td colspan="2"><button type="button" class="btn btn-primary" (click)="onConfirm()"
                                 style="margin-right:30px ;">Velja</button><button type="button" class="btn btn-danger"
-                                (click)="setConfirmValue()">Ne Velja</button></td>
+                                (click)="onDeny()">Ne Velja</button></td>
                     </tr>
                 </ng-container>
             </tbody>
         </table>
         <ng-container *ngIf="!confirm">
-            <app-diagnosis-create></app-diagnosis-create>
+            <app-diagnosis-create [prediction]="prediction"></app-diagnosis-create>
         </ng-container>
     </div>
 </div>
