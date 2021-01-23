@@ -34,6 +34,7 @@ import { PendingListComponent } from './components/pending-list/pending-list.com
 import { PredictionShowComponent } from './components/prediction-show/prediction-show.component';
 import { PatientEditComponent } from './components/patient-edit/patient-edit.component';
 import { AnalysesListComponent } from './components/analyses-list/analyses-list.component';
+import { AnalysisShowComponent } from './components/analysis-show/analysis-show.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AnalysesListComponent } from './components/analyses-list/analyses-list.
     PendingListComponent,
     PredictionShowComponent,
     PatientEditComponent,
-    AnalysesListComponent
+    AnalysesListComponent,
+    AnalysisShowComponent
   ],
   imports: [
     BrowserModule,

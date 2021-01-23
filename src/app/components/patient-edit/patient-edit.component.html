@@ -28,6 +28,12 @@
             </td>
         </tr>
         <tr>
+            <th scope="row">Analize</th>
+            <td colspan="2">
+                <a class="nav-link" routerLink="/analyses-list/patient/{{patient._id}}"><i class="fa fa-stethoscope fa-2x" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        <tr>
             <th scope="row">Klepet</th>
             <td colspan="2"><a [routerLink]="['/chat/', doctor._id ,patient._id]"><i class="fa fa-comment fa-2x"
                         aria-hidden="true" style="margin-right:20px"></i></a></td>

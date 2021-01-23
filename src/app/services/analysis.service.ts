@@ -24,7 +24,7 @@ export class AnalysisService {
   public getAnalysesDoctor (doctorPrivateKey): Observable<Analysis[]> {
     const headers = new HttpHeaders(); 
     var data = {"doctorPrivateKey" : doctorPrivateKey}
-    return this.http.post<Analysis[]>(AnalysisService.host + '/blockchain/getAnalisesDoctor', data, 
+    return this.http.post<Analysis[]>(AnalysisService.host + '/blockchain/getAnalisysDoctor', data, 
     { headers, withCredentials: true }).pipe(
       map(therapies => {
           return therapies;
@@ -35,7 +35,7 @@ export class AnalysisService {
   public getAnalysesPatient (patientPublicKey): Observable<Analysis[]> {
     const headers = new HttpHeaders(); 
     var data = {"patientPublicKey" : patientPublicKey}
-    return this.http.post<Analysis[]>(AnalysisService.host + '/blockchain/getAnalisesPatient', data, 
+    return this.http.post<Analysis[]>(AnalysisService.host + '/blockchain/getAnalisysPatient', data, 
     { headers, withCredentials: true }).pipe(
       map(therapies => {
           return therapies;
